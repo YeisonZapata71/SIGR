@@ -1,0 +1,27 @@
+name: SIGR Baseline Build
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x]
+
+    steps:
+    - name: Checkout del código (Descarga de Línea Base)
+      uses: actions/checkout@v3
+
+    - name: Usar Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: Ejecutar Pruebas Integradas SIGR
+      run: node tests/test_build.js

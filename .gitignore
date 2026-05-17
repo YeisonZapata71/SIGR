@@ -1,0 +1,9 @@
+node_modules/
+.env
+
+# Documentos académicos de entrega (no forman parte del código fuente)
+docs/
+Taller_LineaBase_SIGR_APA7.docx
+generate_apa.py
+package.json
+.vs/
